@@ -1,0 +1,32 @@
+.discount-container{
+    margin-top: 30px;
+    height: 460px;
+    /* background-color: red; */
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.discount-content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+}
+.discount-content h2{
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+}
+.discount-content  button{
+    width: 121px;
+    height: 63px;
+    padding: 10px;
+    border-radius: 16px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+.see{
+    /* background-color: yellow; */
+}

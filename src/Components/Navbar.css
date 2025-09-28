@@ -1,0 +1,51 @@
+.headerNavbar {
+  width: 100%;
+  height: 69px;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+}
+.NavbarWrapper {
+  width: 90%;
+  /* background-color: pink; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-logo{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* background-color: red; */
+}
+.navbar-logo img{
+  padding: 8px;
+  width: 47px;
+  height: 47px;
+  border-radius: 50px;
+  
+}
+.NavbarmenuContainer ul {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.NavbarmenuContainer ul .active {
+ /* padding-bottom: 20px; */
+ padding: 2px;
+ border-bottom: 3px solid #000;
+}
+
+.NavbarmenuContainer ul li:hover {
+  text-decoration: dashed;
+}
+.NavbarAuthContainer ul {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  cursor: pointer;
+  font-weight: 600;
+}
