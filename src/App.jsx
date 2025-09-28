@@ -1,9 +1,13 @@
 import LinkRoute from "./Router/Route";
+// import { ToastContainer } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <>
-      <LinkRoute />
+      {/* <ToastContainer> */}
+        <LinkRoute />
+      {/* </ToastContainer> */}
     </>
   );
 }
