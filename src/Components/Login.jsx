@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 import { useAuth } from "../Context/AuthContext";
-// import { Navigate, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import "./Signup.css";
 // import { toast } from "react-toastify";
 import arrow from "../assets/back.png";
 
-const SignupModal = ({ isOpen, onClose }) => {
-  const {signup, loading, error} = useAuth()
+const LoginModal = ({ isOpen, onClose }) => {
+  const {signin, loading, error} = useAuth()
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
     email: "",
     password: "",
-    phone: "",
   });
 
   const handleChange = (e) => {
@@ -22,48 +19,12 @@ const SignupModal = ({ isOpen, onClose }) => {
       [name]: value,
     }));
   };
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await signup(formData) 
-    // navigate('/login')
-
-    const { firstName, lastName, email, password, phone } = formData;
-
-    // Required fields
-    if (!firstName || !lastName || !email || !password || !phone) {
-      alert("All fields are required");
-      return;
-    }
-
-    // Email must contain @ and end with .com
-    if (!email.includes("@") || !email.toLowerCase().endsWith(".com")) {
-      alert('Email must contain "@" and end with ".com"');
-      return;
-    }
-
-    // Phone: digits only, must be exactly 11
-    // const digitsOnly = String(phone).replace(/\D/g, "");
-    // if (digitsOnly.length !== 14) {
-    //   alert("Phone number must be exactly 11 digits");
-    //   return;
-    // }
-
-    // Password validation
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$/;
-    if (!passwordRegex.test(password)) {
-      alert(
-        "Password must include uppercase, lowercase, number and symbol (min 6 chars)"
-      );
-      return;
-    }
-
-    // If all good
-    alert("Account created successfully!");
-    onClose();
-    console.log("formData:", formData);
+    await signin(formData) 
+    navigate('/')
   };
 
   // ✅ now this works fine
@@ -108,27 +69,6 @@ const SignupModal = ({ isOpen, onClose }) => {
         </h2>
 
         <form className="signup-form1" onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="firstname">First name</label>
-            <input
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              type="text"
-              placeholder="Enter your first name"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="lastName">Last name</label>
-            <input
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              type="text"
-              placeholder="Enter your last name"
-            />
-          </div>
 
           <div>
             <label htmlFor="email">Email</label>
@@ -172,4 +112,4 @@ const SignupModal = ({ isOpen, onClose }) => {
   );
 };
 
-export default SignupModal;
+export default LoginModal;
