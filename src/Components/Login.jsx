@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useAuth } from "../Context/AuthContext";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Signup.css";
 // import { toast } from "react-toastify";
 import arrow from "../assets/back.png";
 
 const LoginModal = ({ isOpen, onClose }) => {
-  const {signin, loading, error} = useAuth()
+  const { signin, loading, error } = useAuth();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -19,12 +19,18 @@ const LoginModal = ({ isOpen, onClose }) => {
       [name]: value,
     }));
   };
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+//   const {email, password} = formData
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    await signin(formData) 
-    navigate('/')
+     e.preventDefault()
+    if(!formData.email || !formData.password){
+        alert("All fields are required to fill");
+        // return false;
+    }
+   
+    await signin(formData);
+    navigate("/");
   };
 
   // ✅ now this works fine
@@ -65,11 +71,12 @@ const LoginModal = ({ isOpen, onClose }) => {
         />
 
         <h2 style={{ textAlign: "center", fontWeight: "400" }}>
-          Create Account
+          Sign in
         </h2>
-
+            <p style={{
+                textAlign: "center"
+            }}>Sign in to continue</p>
         <form className="signup-form1" onSubmit={handleSubmit}>
-
           <div>
             <label htmlFor="email">Email</label>
             <input
@@ -91,21 +98,11 @@ const LoginModal = ({ isOpen, onClose }) => {
               placeholder="Enter your password"
             />
           </div>
-          <div>
-            <label htmlFor="number">Phone number</label>
-            <input
-              name="phone"
-              type="tel"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="Enter your phone number"
-            />
-          </div>
 
-
-          <button type="submit">{
-            loading ? "Creating account..." : "create account"}</button>
-            {error && <p style={{ color: "red" }}>{error}</p>}
+          <button type="submit">
+            {loading ? "Signing..." : "Sign in"}
+          </button>
+          {error && <p style={{ color: "red" }}>{error}</p>}
         </form>
       </div>
     </div>

@@ -1,12 +1,14 @@
 import React from "react";
 import "./Navbar.css";
 import { useState } from "react";
+import { useAuth } from "../Context/AuthContext";
 // import { UserPlus } from "lucide-react";
 import logo from '../assets/logo.png'
 import SignupModal from "./Signup";
 import LoginModal from "./Login";
 
 const Navbar = () => {
+  const {user} = useAuth()
    const [open, setOpen] = useState(false);
    const [loginOpen, setLogin] =useState(false)
     const [menu, setMenu] =useState('home')
@@ -25,12 +27,20 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="NavbarAuthContainer">
+        {
+          user ? (
+            <div>
+              <h1>profile picture</h1>
+            </div>
+          ) : (
+           <div className="NavbarAuthContainer">
           <ul>
             <li onClick={()=> setOpen(true)} >Sign up</li>
             <li onClick={() => setLogin(true) }>Sign in</li>
           </ul>
         </div>
+          )
+        }
       </div>
            <SignupModal isOpen={open} onClose={() => setOpen(false)} />
             <LoginModal isOpen={loginOpen} onClose={() => setLogin(false)} />
