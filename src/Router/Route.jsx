@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar";
 import Home from "../Pages/HomePage/Home";
 import Cart from "../Pages/Cart/Cart";
 import Footer from "../Components/Footer";
+import LoginModal from "../Components/Login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const LinkRoute = () => {
@@ -12,6 +13,7 @@ const LinkRoute = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<LoginModal />}/>
       </Routes>
       <Footer />
     </Router>
