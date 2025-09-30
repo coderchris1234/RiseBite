@@ -60,9 +60,12 @@ if (!phoneRegex.test(phone)) {
     }
 
     try {
-      await signup(formData);
-       alert("Account created successfully!");
-    onClose();
+      const success = await signup(formData)
+      if(success){
+         alert("Account created successfully! Please sign in to continue.");
+         onClose();
+      }
+    
     } catch (error) {
       alert("signup failed. Please try again", error)
       
