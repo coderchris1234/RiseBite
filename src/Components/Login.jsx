@@ -20,17 +20,22 @@ const LoginModal = ({ isOpen, onClose }) => {
     }));
   };
   const navigate = useNavigate();
-//   const {email, password} = formData
+  //   const {email, password} = formData
 
   const handleSubmit = async (e) => {
-     e.preventDefault()
-    if(!formData.email || !formData.password){
-        alert("All fields are required to fill");
-        // return false;
+    e.preventDefault();
+    if (!formData.email || !formData.password) {
+      alert("All fields are required to fill");
+      // return false;
     }
-   
-    await signin(formData);
-    navigate("/");
+
+    try {
+      await signin(formData);
+      navigate("/");
+      onClose()
+    } catch (error) {
+      alert("failed to sign in", error)
+    }
   };
 
   // ✅ now this works fine
@@ -70,12 +75,14 @@ const LoginModal = ({ isOpen, onClose }) => {
           alt="back"
         />
 
-        <h2 style={{ textAlign: "center", fontWeight: "400" }}>
-          Sign in
-        </h2>
-            <p style={{
-                textAlign: "center"
-            }}>Sign in to continue</p>
+        <h2 style={{ textAlign: "center", fontWeight: "400" }}>Sign in</h2>
+        <p
+          style={{
+            textAlign: "center",
+          }}
+        >
+          Sign in to continue
+        </p>
         <form className="signup-form1" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email">Email</label>
@@ -99,9 +106,7 @@ const LoginModal = ({ isOpen, onClose }) => {
             />
           </div>
 
-          <button type="submit">
-            {loading ? "Signing..." : "Sign in"}
-          </button>
+          <button type="submit">{loading ? "Signing..." : "Sign in"}</button>
           {error && <p style={{ color: "red" }}>{error}</p>}
         </form>
       </div>

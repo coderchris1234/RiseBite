@@ -24,8 +24,10 @@ export const AuthProvider = ({ children }) => {
 
       if (res.data.success) {
         // save token in localStorage for later requests
-        localStorage.setItem("token", res.data.token);
-        setUser(res.data.user);
+        // localStorage.setItem("token", res.data.token);
+        // setUser(res.data.user);
+
+        return true;
       }
     } catch (err) {
       setError(err.response?.data?.message || "Signup failed");
@@ -47,6 +49,7 @@ export const AuthProvider = ({ children }) => {
 
       if (res.data.success) {
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
         setUser(res.data.user);
       }
     } catch (err) {
