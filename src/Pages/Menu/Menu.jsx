@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
 
 const Menu = () => {
   return (
     <div>
-      <h1>Martins</h1>
-    </div>
-  )
-}
+      <h1>Martinsola1222222</h1>
 
-export default Menu
+      <h2>44444</h2>
+    </div>
+  );
+};
+
+export default Menu;
