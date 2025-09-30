@@ -26,7 +26,6 @@ const SignupModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await signup(formData) 
     // navigate('/login')
 
     const { firstName, lastName, email, password, phone } = formData;
@@ -43,12 +42,12 @@ const SignupModal = ({ isOpen, onClose }) => {
       return;
     }
 
-    // Phone: digits only, must be exactly 11
-    // const digitsOnly = String(phone).replace(/\D/g, "");
-    // if (digitsOnly.length !== 14) {
-    //   alert("Phone number must be exactly 11 digits");
-    //   return;
-    // }
+   const phoneRegex = /^\+234\d{10}$/;
+if (!phoneRegex.test(phone)) {
+  alert("Phone number must start with +234 and be followed by 10 digits");
+  return;
+}
+
 
     // Password validation
     const passwordRegex =
@@ -60,9 +59,16 @@ const SignupModal = ({ isOpen, onClose }) => {
       return;
     }
 
-    // If all good
-    alert("Account created successfully!");
+    try {
+      await signup(formData);
+       alert("Account created successfully!");
     onClose();
+    } catch (error) {
+      alert("signup failed. Please try again", error)
+      
+    }
+
+    // If all good
     console.log("formData:", formData);
   };
 
