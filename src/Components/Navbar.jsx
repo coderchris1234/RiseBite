@@ -12,20 +12,19 @@ import LoginModal from "./Login";
 import { Addtocart } from "../Context/Addtocart";
 import { Pointer } from "lucide-react";
 
-
 const Navbar = () => {
   const nav = useNavigate();
-  const { user} = useAuth();
+  const { user } = useAuth();
   const [open, setOpen] = useState(false);
   const [loginOpen, setLogin] = useState(false);
   const [menu, setMenu] = useState("home");
   const { cartItems } = useContext(Addtocart);
-    useEffect(() => {
-  if (user) {
-    setLogin(false); 
-    setOpen(false);  
-  }
-}, [user]);
+  useEffect(() => {
+    if (user) {
+      setLogin(false);
+      setOpen(false);
+    }
+  }, [user]);
   return (
     <div className="headerNavbar">
       <div className="NavbarWrapper">
@@ -66,19 +65,15 @@ const Navbar = () => {
             </Link>
           </ul>
         </div>
-        
-        
 
-
-        {user ? (
-          <div
+        {/* <div
           style={{
             display: "flex",
             gap: "20px",
           }}
         >
           <IoCartOutline
-            size={30}
+            size={28}
             style={{
               cursor: "pointer",
             }}
@@ -91,24 +86,64 @@ const Navbar = () => {
             }}
             onClick={() => nav("/profile")}
           />
-          {cartItems.length > 0 && (
-            <span
+        </div> */}
+
+        {user ? (
+          <div
+            style={{
+              display: "flex",
+              gap: "20px",
+              alignItems: "center",
+            }}
+          >
+            <IoCartOutline
+              size={30}
               style={{
-                position: "absolute",
-                top: 10,
-                right: 440,
-                background: "red",
-                color: "white",
-                borderRadius: "50%",
-                padding: "2px 6px",
-                fontSize: "15px",
-                fontWeight: 400,
+                cursor: "pointer",
               }}
+              onClick={() => nav("/cart")}
+            />
+            <CgProfile
+              size={28}
+              style={{
+                cursor: "pointer",
+              }}
+              onClick={() => nav("/profile")}
+            />
+            {cartItems.length > 0 && (
+              <span
+                className="red_indicator"
+                style={{
+                  position: "absolute",
+                  top: 10,
+                  right: 440,
+                  background: "red",
+                  color: "white",
+                  borderRadius: "50%",
+                  padding: "2px 6px",
+                  fontSize: "15px",
+                  fontWeight: 400,
+                }}
+              >
+                {cartItems.length}
+              </span>
+            )}
+
+            <button
+              style={{
+                backgroundColor: "#a59f9f",
+                padding: "8px",
+                borderRadius: "8px",
+                color: "white",
+                border: "none",
+                cursor: "pointer",
+              }}
+              onClick={signout}
             >
-              {cartItems.length}
-            </span>
-          )}
-        </div>
+              Logout
+            </button>
+            <h4>Hey 👋 {user.firstname}</h4>
+          </div>
         ) : (
           <div className="NavbarAuthContainer">
             <ul>
