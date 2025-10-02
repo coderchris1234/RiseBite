@@ -8,6 +8,7 @@ import food5 from "../../assets/CameralTea.jpg";
 import food6 from "../../assets/WhiteCoffee.jpg";
 import { useAuth } from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Breakfast = () => {
   const { user } = useAuth();
@@ -75,7 +76,7 @@ const Breakfast = () => {
             fontSize: "15px",
             cursor: "pointer",
           }}
-          onClick={() => alert("you must be signed in to place order")}
+          onClick={() => toast.warning("you must be signed in to place order")}
         >
           Order Now
         </button>

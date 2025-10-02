@@ -46,7 +46,7 @@ const SignupModal = ({ isOpen, onClose }) => {
 
    const phoneRegex = /^\d{11}$/;
 if (!phoneRegex.test(phone)) {
-  toast.error("Phone number must start with +234 and be followed by 10 digits");
+  toast.error("Phone number must be up to 11 digits");
   return;
 }
 

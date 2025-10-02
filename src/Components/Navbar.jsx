@@ -15,7 +15,7 @@ import { Pointer } from "lucide-react";
 
 const Navbar = () => {
   const nav = useNavigate();
-  const { user, signout } = useAuth();
+  const { user} = useAuth();
   const [open, setOpen] = useState(false);
   const [loginOpen, setLogin] = useState(false);
   const [menu, setMenu] = useState("home");
@@ -67,7 +67,11 @@ const Navbar = () => {
           </ul>
         </div>
         
-        <div
+        
+
+
+        {user ? (
+          <div
           style={{
             display: "flex",
             gap: "20px",
@@ -105,42 +109,6 @@ const Navbar = () => {
             </span>
           )}
         </div>
-
-
-        {user ? (
-          <div
-            style={{
-              display: "flex",
-              gap: "20px",
-              alignItems: "center"
-            }}
-          >
-            <IoCartOutline
-              size={28}
-              style={{
-                cursor: "pointer",
-              }}
-              onClick={() => nav("/cart")}
-            />
-            <CgProfile
-              size={28}
-              style={{
-                cursor: "pointer",
-              }}
-              onClick={() => nav("/profile")}
-            />
-            <button 
-            style={{
-              backgroundColor: "#a59f9f",
-              padding: "8px",
-              borderRadius: "8px",
-              color: "white",
-              border: "none",
-              cursor: "pointer"
-            }}
-            onClick={signout}>Logout</button>
-            <h4>Hey 👋 {user.firstname}</h4>
-          </div>
         ) : (
           <div className="NavbarAuthContainer">
             <ul>
