@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.menu_header {
+  margin: auto;
+  background-image: url("./src/assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 220px;
+  color: white;
+
+  gap: 10px;
+}
+
+.menu_header_texts {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.menu_header_texts > h2 {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.menu_header_texts > h3 {
+  font-size: 25px;
+  font-weight: 250;
+}
+
+.menu_food {
+  height: 110vh;
+}
+
+.menu_name {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+}
+
+.menu_name > h1 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.menu_name > h3 {
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.blocks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 70%;
+  margin: auto;
+  height: 500px;
+}
+
+.food1 {
+  width: 251px;
+  border: 1px solid rgba(87, 87, 87, 0.479);
+  height: 300px;
+  border-radius: 5px;
+}
+
+.img_menu {
+  width: 250px;
+  height: 240px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.img_menu:hover {
+  transform: rotate(-2deg) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.food_price_add {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  width: 230px;
+  padding: 2px;
+}
+
+.food_price {
+  margin-top: 7px;
+}
+.food_price > h3 {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.food_price > h2 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.btn_add {
+  width: 90px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(70, 69, 69, 0.685);
+  color: black;
+  font-weight: 500;
+  font-size: 13px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn_add:hover {
+  color: white;
+  background-color: black;
+}
+
+.btn_add:active {
+  transform: scale(0.9);
+  background-color: grey;
+  color: white;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
