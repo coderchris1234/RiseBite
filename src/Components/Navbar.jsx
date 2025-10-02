@@ -129,20 +129,8 @@ const Navbar = () => {
               </span>
             )}
 
-            <button
-              style={{
-                backgroundColor: "#a59f9f",
-                padding: "8px",
-                borderRadius: "8px",
-                color: "white",
-                border: "none",
-                cursor: "pointer",
-              }}
-              onClick={signout}
-            >
-              Logout
-            </button>
-            <h4>Hey 👋 {user.firstname}</h4>
+          
+           
           </div>
         ) : (
           <div className="NavbarAuthContainer">
