@@ -66,14 +66,14 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div
+        {/* <div
           style={{
             display: "flex",
             gap: "20px",
           }}
         >
           <IoCartOutline
-            size={30}
+            size={28}
             style={{
               cursor: "pointer",
             }}
@@ -86,25 +86,7 @@ const Navbar = () => {
             }}
             onClick={() => nav("/profile")}
           />
-          {cartItems.length > 0 && (
-            <span
-              className="red_indicator"
-              style={{
-                position: "absolute",
-                top: 10,
-                right: 440,
-                background: "red",
-                color: "white",
-                borderRadius: "50%",
-                padding: "2px 6px",
-                fontSize: "15px",
-                fontWeight: 400,
-              }}
-            >
-              {cartItems.length}
-            </span>
-          )}
-        </div>
+        </div> */}
 
         {user ? (
           <div
@@ -115,7 +97,7 @@ const Navbar = () => {
             }}
           >
             <IoCartOutline
-              size={28}
+              size={30}
               style={{
                 cursor: "pointer",
               }}
@@ -128,6 +110,25 @@ const Navbar = () => {
               }}
               onClick={() => nav("/profile")}
             />
+            {cartItems.length > 0 && (
+              <span
+                className="red_indicator"
+                style={{
+                  position: "absolute",
+                  top: 10,
+                  right: 440,
+                  background: "red",
+                  color: "white",
+                  borderRadius: "50%",
+                  padding: "2px 6px",
+                  fontSize: "15px",
+                  fontWeight: 400,
+                }}
+              >
+                {cartItems.length}
+              </span>
+            )}
+
             <button
               style={{
                 backgroundColor: "#a59f9f",
