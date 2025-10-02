@@ -14,13 +14,24 @@ const LoginModal = ({ isOpen, onClose }) => {
     email: "",
     password: "",
   });
+  
   const [forgotOpen, setForgotOpen] = useState(false);
+   const navigate = useNavigate();
 
   useEffect(() => {
   if (!isOpen) {
     setFormData({ email: "", password: "" });
   }
 }, [isOpen]);
+
+
+// useEffect(() => {
+//   if(user && isOpen) {
+//     onClose();
+//     toast.success(`👋 Welcome back, ${user.firstName}`);
+//     navigate('/')
+//   }
+// }, [user, isOpen, onClose, navigate])
 
 
 
@@ -31,7 +42,7 @@ const LoginModal = ({ isOpen, onClose }) => {
       [name]: value,
     }));
   };
-  const navigate = useNavigate();
+  
   //   const {email, password} = formData
 
   const handleSubmit = async (e) => {
@@ -126,7 +137,7 @@ const LoginModal = ({ isOpen, onClose }) => {
               placeholder="Enter your password"
             />
           </div>
-           <p style={{ cursor: "pointer", color: "blue" }}
+           <p style={{ cursor: "pointer", color: "black", textDecoration: 'underline' }}
                onClick={() => setForgotOpen(true)}>
               Forgot Password? Click here
             </p>

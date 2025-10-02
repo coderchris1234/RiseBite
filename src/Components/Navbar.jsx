@@ -14,7 +14,7 @@ import { Pointer } from "lucide-react";
 
 const Navbar = () => {
   const nav = useNavigate();
-  const { user, signout } = useAuth();
+  const { user } = useAuth();
   const [open, setOpen] = useState(false);
   const [loginOpen, setLogin] = useState(false);
   const [menu, setMenu] = useState("home");

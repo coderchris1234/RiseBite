@@ -1,0 +1,184 @@
+.payment_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.payment_modal {
+  background-color: #ffffff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 610px;
+  padding: 32px 40px 40px 40px;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+.payment_header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.payment_back_btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  flex-shrink: 0;
+}
+
+.payment_logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.payment_user_info_right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.payment_email {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 4px 0;
+  text-align: center;
+}
+
+.payment_pay_text {
+  font-size: 15px;
+  font-weight: 400;
+  color: #000;
+  margin: 0;
+  text-align: center;
+}
+
+.payment_amount_value {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.payment_divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 0 0 20px 0;
+  border: none;
+}
+
+.payment_transfer_text {
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 16px 0;
+  font-weight: 400;
+}
+
+.payment_body_box {
+  background-color: #f8f8f8;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.payment_first_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.payment_info_label {
+  font-size: 12px;
+  color: #666;
+  font-weight: 400;
+}
+
+.payment_info_value {
+  font-size: 16px;
+  color: #000;
+  font-weight: 500;
+}
+
+.payment_info_amount {
+  font-size: 20px;
+  color: #000;
+  font-weight: 700;
+}
+
+.payment_expiry_text {
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+}
+
+.payment_info_row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.payment_submit_btn {
+  width: 100%;
+  padding: 18px 24px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: all 0.2s ease;
+}
+
+.payment_submit_btn:hover:not(.payment_disabled) {
+  background-color: #222;
+}
+
+.payment_submit_btn:active:not(.payment_disabled) {
+  transform: scale(0.98);
+}
+
+.payment_disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.payment_helper_text {
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}

@@ -60,11 +60,15 @@ export const AuthProvider = ({ children }) => {
         }
       );
 
-      if (res.data.success === true || res.data.success === "true") {
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("user", JSON.stringify(res.data.user));
-        setUser(res.data.user);
+      console.log("Login API response:", res.data)
 
+      if (res.data.token) {
+        localStorage.setItem("token", res.data.token);
+       const dashboardData =  await getDashboard();
+       console.log("Dashboard API response:", dashboardData)
+        localStorage.setItem("user", JSON.stringify(res.data.data));
+        setUser(res.data.data);
+        toast.success("✅ Login successful")
         return true;
       }
     } catch (err) {
@@ -76,19 +80,68 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const getDashboard = async () =>{
+    try {
+      const token = localStorage.getItem('token');
+      if(!token) return null;
+
+      const res = await axios.get(`${API_URL}/api/risebite/dashboard`, {
+         headers: {
+          Authorization: `Bearer ${token}`,
+         },
+      });
+
+      if(res.status === 200 && res.data.data){
+        setUser(res.data.data);
+        localStorage.setItem('user', JSON.stringify(res.data.data));
+        return res.data.data;
+      }
+
+
+    } catch (error) {
+      toast.error("Dashboard fetch failed:", error.response?.data || error.message );
+      signout();
+      return null
+      
+    }
+  }
+
   // 🔹 SIGNOUT
   const signout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     setUser(null);
+    toast.info("🚪 Logged out")
   };
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      // optionally, decode token or call backend to fetch user info
-      const savedUser = JSON.parse(localStorage.getItem("user"));
-      if (savedUser) setUser(savedUser);
+
+useEffect(() => {
+  const token = localStorage.getItem("token");
+  const savedUser = localStorage.getItem("user");
+
+  if (savedUser && savedUser !== "undefined") {
+    try {
+      setUser(JSON.parse(savedUser)); // immediately restore user
+    } catch (err) {
+      console.error("Failed to parse savedUser:", err);
+      localStorage.removeItem("user"); // cleanup bad value
     }
-  }, []);
+  }
+
+  if (token) {
+    getDashboard(); // refresh from backend
+  }
+}, []);
+
+
+
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   if (token) {
+  //     // optionally, decode token or call backend to fetch user info
+  //     const savedUser = JSON.parse(localStorage.getItem("user"));
+  //     if (savedUser) setUser(savedUser);
+  //   }
+  // }, []);
 
   return (
     <AuthContext.Provider
