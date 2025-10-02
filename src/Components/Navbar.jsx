@@ -66,6 +66,7 @@ const Navbar = () => {
             </Link>
           </ul>
         </div>
+        
         <div
           style={{
             display: "flex",

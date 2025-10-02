@@ -256,7 +256,7 @@ const LinkRoute = ({ openLoginModal }) => {
           }
         />
 
-        {/* <Menu props={riseBitemenu} /> */}
+        <Route path="/verify" element={<VerifyEmail openLoginModal={openLoginModal} />} />
         <Route path="/order" element={<Order />} />
       </Routes>
       <Footer />
