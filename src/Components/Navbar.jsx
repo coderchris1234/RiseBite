@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Navbar.css";
 import { useState } from "react";
 import { useAuth } from "../Context/AuthContext";
@@ -10,12 +10,19 @@ import logo from "../assets/logo.png";
 import SignupModal from "./Signup";
 import LoginModal from "./Login";
 
+
 const Navbar = () => {
   const nav = useNavigate();
-  const { user } = useAuth();
+  const { user, signout } = useAuth();
   const [open, setOpen] = useState(false);
   const [loginOpen, setLogin] = useState(false);
   const [menu, setMenu] = useState("home");
+    useEffect(() => {
+  if (user) {
+    setLogin(false); 
+    setOpen(false);  
+  }
+}, [user]);
   return (
     <div className="headerNavbar">
       <div className="NavbarWrapper">
@@ -57,11 +64,13 @@ const Navbar = () => {
           </ul>
         </div>
 
+
         {user ? (
           <div
             style={{
               display: "flex",
               gap: "20px",
+              alignItems: "center"
             }}
           >
             <IoCartOutline
@@ -78,6 +87,17 @@ const Navbar = () => {
               }}
               onClick={() => nav("/profile")}
             />
+            <button 
+            style={{
+              backgroundColor: "#a59f9f",
+              padding: "8px",
+              borderRadius: "8px",
+              color: "white",
+              border: "none",
+              cursor: "pointer"
+            }}
+            onClick={signout}>Logout</button>
+            <h4>Hey 👋 {user.firstname}</h4>
           </div>
         ) : (
           <div className="NavbarAuthContainer">

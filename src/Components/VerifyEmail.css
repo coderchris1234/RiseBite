@@ -1,0 +1,82 @@
+.VerifyContainer{
+    background-color: rgb(172, 167, 167);
+    width: 50%;
+    height: 100vh;
+    display: flex;
+   align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.verifyHeader{
+    background-color: black;
+    color: white;
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    padding: 20px;
+    align-items: center;
+}
+.verifyHeader h2{
+    margin-left: 20px;
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+.VerifyContainer P{
+    padding-top: 50px
+}
+.VerifyContainer h1{
+    margin-top: 30px;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 36px;
+}
+
+.sent{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    width: 400px;
+    text-align: center;
+}
+
+.InputContainer{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+.InputContainer input{
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    text-align: center;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+}
+
+.InputContainer input:focus{
+    border: 1px solid black;
+}
+.VerifyContainer button{
+    margin-top: 20px;
+    padding: 10px 80px;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.did-not{
+    margin-top: 15px;
+}
+.span{
+    color: black;
+    cursor: pointer;
+    text-decoration: underline;
+}
