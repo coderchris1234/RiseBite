@@ -17,220 +17,225 @@ import VerifyEmail from "../Components/VerifyEmail";
 const LinkRoute = ({ openLoginModal }) => {
   const riseBitemenu = [
     {
+      id: 1,
       image: "./src/assets/Risbite pictures/fluffymoimoi.jpeg",
       food: "Fluffy Moi Moi",
-      price: "N3,200",
+      price: 3200,
       addtocart: "Add to cart",
     },
-
     {
+      id: 2,
       image: "./src/assets/Risbite pictures/breadandegg.jpeg",
       food: "Bread & Egg",
-      price: "N2,800",
+      price: 2800,
       addtocart: "Add to cart",
     },
-
     {
+      id: 3,
       image: "./src/assets/Risbite pictures/breadandomelet.jpeg",
       food: "Bread & Omelet",
-      price: "N3,200",
+      price: 3200,
       addtocart: "Add to cart",
     },
-
     {
+      id: 4,
       image: "./src/assets/Risbite pictures/beancakesandpap.jpeg",
       food: "Bean Cakes & Pap",
-      price: "N5,000",
+      price: 5000,
       addtocart: "Add to cart",
     },
-
     {
+      id: 5,
       image: "./src/assets/Risbite pictures/friedriceandchicken.jpeg",
       food: "Fried Rice & Chicken",
-      price: "N5,000",
+      price: 5000,
       addtocart: "Add to cart",
     },
-
     {
+      id: 6,
       image: "./src/assets/Risbite pictures/plantainandeggsauce.jpeg",
       food: "Plantain & Egg Sauce",
-      price: "N2,600",
+      price: 2600,
       addtocart: "Add to cart",
     },
   ];
 
   const riseBitemenu2 = [
     {
+      id: 7,
       image: "./src/assets/Risbite pictures/baconandegg.jpeg",
       food: "Bacon, Juice, and Egg",
-      price: "N2,200",
+      price: 2200,
       addtocart: "Add to cart",
     },
-
     {
+      id: 8,
       image: "./src/assets/Risbite pictures/breadandeggandtea.jpeg",
       food: "Bread & Egg",
-      price: "N2,800",
+      price: 2800,
       addtocart: "Add to cart",
     },
-
     {
+      id: 9,
       image: "./src/assets/Risbite pictures/breaddoughnutegg.jpeg",
       food: "Bread & Doughnut & Egg",
-      price: "N2,500",
+      price: 2500,
       addtocart: "Add to cart",
     },
-
     {
+      id: 10,
       image: "./src/assets/Risbite pictures/juiceandegg.jpeg",
       food: "Juice and Egg",
-      price: "N4,000",
+      price: 4000,
       addtocart: "Add to cart",
     },
-
     {
+      id: 11,
       image: "./src/assets/Risbite pictures/Juicesandwichandegg.jpeg",
       food: "Juice, Sandwich, and Egg",
-      price: "N4,500",
+      price: 4500,
       addtocart: "Add to cart",
     },
-
     {
+      id: 12,
       image: "./src/assets/Risbite pictures/pancakessausageegg.jpeg",
       food: "Pancake, Sausage & Egg",
-      price: "N2,800",
+      price: 2800,
       addtocart: "Add to cart",
     },
   ];
 
   const riseBitemenu3 = [
     {
+      id: 13,
       image: "./src/assets/Risbite pictures/riceandveges.jpeg",
       food: "Rice and Veges",
-      price: "N3,700",
+      price: 3700,
       addtocart: "Add to cart",
     },
-
     {
+      id: 14,
       image: "./src/assets/Risbite pictures/sausageandchinchin.jpeg",
       food: "Sausage and Plantain",
-      price: "N2,100",
+      price: 2100,
       addtocart: "Add to cart",
     },
-
     {
+      id: 15,
       image: "./src/assets/Risbite pictures/sausagebeansbread.jpeg",
       food: "Sausage, Beans, and Bread",
-      price: "N3,400",
+      price: 3400,
       addtocart: "Add to cart",
     },
-
     {
+      id: 16,
       image: "./src/assets/Risbite pictures/teaeggandbread.jpeg",
       food: "Tea, Egg, and Bread",
-      price: "N6,000",
+      price: 6000,
       addtocart: "Add to cart",
     },
-
     {
+      id: 17,
       image: "./src/assets/Risbite pictures/teaeggbread.jpeg",
       food: "Tea, Egg, and Bread",
-      price: "N4,000",
+      price: 4000,
       addtocart: "Add to cart",
     },
-
     {
+      id: 18,
       image: "./src/assets/Risbite pictures/yamporridge.jpeg",
       food: "Yam Porridge",
-      price: "N3,800",
+      price: 3800,
       addtocart: "Add to cart",
     },
   ];
 
   const riseBitemenu4 = [
     {
+      id: 19,
       image: "./src/assets/Risbite pictures/breadandegg.jpeg",
       food: "Bread and Egg",
-      price: "N3,100",
+      price: 3100,
       addtocart: "Add to cart",
     },
-
     {
+      id: 20,
       image: "./src/assets/Risbite pictures/beansandplantain.jpeg",
       food: "Beans and Plantain",
-      price: "N2,900",
+      price: 2900,
       addtocart: "Add to cart",
     },
-
     {
+      id: 21,
       image: "./src/assets/Risbite pictures/breadegg.jpeg",
       food: "Bread & Egg",
-      price: "N3,700",
+      price: 3700,
       addtocart: "Add to cart",
     },
-
     {
+      id: 22,
       image: "./src/assets/Risbite pictures/riceandsauce.jpeg",
       food: "Rice and Sauce",
-      price: "N5,000",
+      price: 5000,
       addtocart: "Add to cart",
     },
-
     {
+      id: 23,
       image: "./src/assets/Risbite pictures/friedriceandchicken.jpeg",
       food: "Fried Rice & Chicken",
-      price: "N5,000",
+      price: 5000,
       addtocart: "Add to cart",
     },
-
     {
+      id: 24,
       image: "./src/assets/Risbite pictures/sausagebeansbread.jpeg",
-      food: "Sausage, Breans, and Bread",
-      price: "N2,600",
+      food: "Sausage, Beans, and Bread",
+      price: 2600,
       addtocart: "Add to cart",
     },
   ];
 
   const riseBitemenu5 = [
     {
+      id: 25,
       image: "./src/assets/Risbite pictures/smoothie.jpeg",
       food: "Smoothie",
-      price: "N1500",
+      price: 1500,
       addtocart: "Add to cart",
     },
-
     {
+      id: 26,
       image: "./src/assets/Risbite pictures/whitecoffee.jpeg",
       food: "White Coffee",
-      price: "N1,800",
+      price: 1800,
       addtocart: "Add to cart",
     },
-
     {
+      id: 27,
       image: "./src/assets/Risbite pictures/blackcoffee.jpeg",
       food: "Black Coffee",
-      price: "N1,200",
+      price: 1200,
       addtocart: "Add to cart",
     },
-
     {
+      id: 28,
       image: "./src/assets/Risbite pictures/bevearage1.jpeg",
       food: "Parfait Plus",
-      price: "N5,000",
+      price: 5000,
       addtocart: "Add to cart",
     },
-
     {
+      id: 29,
       image: "./src/assets/Risbite pictures/carameltea.jpeg",
       food: "Caramel Tea",
-      price: "N3,000",
+      price: 3000,
       addtocart: "Add to cart",
     },
-
     {
+      id: 30,
       image: "./src/assets/Risbite pictures/juice.jpeg",
       food: "Juice",
-      price: "N2,600",
+      price: 2600,
       addtocart: "Add to cart",
     },
   ];
