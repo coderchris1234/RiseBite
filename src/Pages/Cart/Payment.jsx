@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 import "./Payment.css";
 
 const Payment = ({ totalAmount = 6800, onClose }) => {
   const [timeLeft, setTimeLeft] = useState(288);
+  const [showConfirm, setShowConfirm] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -76,6 +79,7 @@ const Payment = ({ totalAmount = 6800, onClose }) => {
             isExpired ? "payment_disabled" : ""
           }`}
           disabled={isExpired}
+          onClick={() => setShowConfirm(true)}
         >
           I've sent the money
         </button>
@@ -84,6 +88,26 @@ const Payment = ({ totalAmount = 6800, onClose }) => {
           Click this option to verify if you have made the payment
         </p>
       </div>
+
+      {showConfirm && (
+        <div className="confirm_overlay">
+          <div className="confirm_modal">
+            <h2>✅ WE HAVE CONFIRMED PAYMENT</h2>
+            <p>
+              You will receive your package in the next <b>15 minutes</b>.
+              <br />
+              Call our service Number: <b>08116754005</b> to track your order.
+            </p>
+            <button
+              className="confirm_close_btn"
+              onClick={() => navigate("/menu")}
+              // onClick={() => setShowConfirm(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

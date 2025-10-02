@@ -1,29 +1,5 @@
-// import React, { createContext, useState } from "react";
-
-// export const Addtocart = createContext();
-
-// export const AddtocartProvider = ({ children }) => {
-//   const [cartItems, setCartItems] = useState([]);
-
-//   // Add item
-//   const addToCart = (item) => {
-//     setCartItems((prev) => [...prev, item]);
-//   };
-
-//   // Remove item
-//   const removeFromCart = (id) => {
-//     setCartItems((prev) => prev.filter((item) => item.id !== id));
-//   };
-
-//   return (
-//     <Addtocart.Provider value={{ cartItems, addToCart, removeFromCart }}>
-//       {children}
-//     </Addtocart.Provider>
-//   );
-// };
 import React, { createContext, useState } from "react";
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const Addtocart = createContext();
 
 export const AddtocartProvider = ({ children }) => {
@@ -45,12 +21,10 @@ export const AddtocartProvider = ({ children }) => {
     });
   };
 
-  // Remove item from cart
   const removeFromCart = (itemFood) => {
     setCartItems((prev) => prev.filter((item) => item.food !== itemFood));
   };
 
-  // Update quantity of an item
   const updateQuantity = (itemFood, newQuantity) => {
     if (newQuantity <= 0) {
       removeFromCart(itemFood);
@@ -64,12 +38,10 @@ export const AddtocartProvider = ({ children }) => {
     );
   };
 
-  // Clear entire cart
   const clearCart = () => {
     setCartItems([]);
   };
 
-  // Calculate total price
   const getTotalPrice = () => {
     return cartItems
       .reduce((total, item) => {
@@ -83,7 +55,6 @@ export const AddtocartProvider = ({ children }) => {
       .toFixed(2);
   };
 
-  // Get total items count
   const getTotalItems = () => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   };

@@ -70,6 +70,7 @@ const Navbar = () => {
           style={{
             display: "flex",
             gap: "20px",
+            alignItems: "center",
           }}
         >
           <IoCartOutline
@@ -93,7 +94,6 @@ const Navbar = () => {
             style={{
               display: "flex",
               gap: "20px",
-              alignItems: "center",
             }}
           >
             <IoCartOutline
@@ -128,9 +128,6 @@ const Navbar = () => {
                 {cartItems.length}
               </span>
             )}
-
-          
-           
           </div>
         ) : (
           <div className="NavbarAuthContainer">
