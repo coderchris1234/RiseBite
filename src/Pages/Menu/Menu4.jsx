@@ -12,7 +12,7 @@ const Menu4 = ({ props }) => {
         </div>
         <article className="blocks">
           {props.map((prop, index) => (
-            <div className="food1">
+            <div className="food1" key={index}>
               <img src={prop.image} alt="" className="img_menu" />
               <section className="food_price_add">
                 <div className="food_price">

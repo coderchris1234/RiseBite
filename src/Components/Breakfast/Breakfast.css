@@ -1,0 +1,44 @@
+.foodContainer{
+    /* background-color: red; */
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* flex-wrap: wrap; */
+    height: 90vh;
+    place-items: center;
+    margin-top: 20px;
+}
+.food{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+.food img{
+    width: 200px;
+    height: 200px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;  
+}
+.food p{
+    padding: 5px;
+}
+button :hover{
+    background-color: black;
+}
+
+@media screen and (max-width: 900px) {
+     .foodContainer{
+        grid-template-columns: 1fr 1fr;
+        background-color: red;
+        width: 50%;
+     }
+     .food img{
+        width: 100px;
+        height: 100px;
+     }
+
+     h2{
+        color: pink;
+        width: 300px;
+        font-size: 10px;
+     }
+}

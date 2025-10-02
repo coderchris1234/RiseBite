@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useAuth } from "../Context/AuthContext";
-// import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Signup.css";
 // import { toast } from "react-toastify";
 import arrow from "../assets/back.png";
+import { toast } from "react-toastify";
 
 const SignupModal = ({ isOpen, onClose }) => {
+  const nav = useNavigate()
   const {signup, loading, error} = useAuth()
   const [formData, setFormData] = useState({
     firstName: "",
@@ -26,25 +28,25 @@ const SignupModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // navigate('/login')
+  
 
     const { firstName, lastName, email, password, phone } = formData;
 
     // Required fields
     if (!firstName || !lastName || !email || !password || !phone) {
-      alert("All fields are required");
+      toast.error("All fields are required");
       return;
     }
 
     // Email must contain @ and end with .com
     if (!email.includes("@") || !email.toLowerCase().endsWith(".com")) {
-      alert('Email must contain "@" and end with ".com"');
+      toast.error('Email must contain "@" and end with ".com"');
       return;
     }
 
-   const phoneRegex = /^\+234\d{10}$/;
+   const phoneRegex = /^\d{11}$/;
 if (!phoneRegex.test(phone)) {
-  alert("Phone number must start with +234 and be followed by 10 digits");
+  toast.error("Phone number must start with +234 and be followed by 10 digits");
   return;
 }
 
@@ -53,7 +55,7 @@ if (!phoneRegex.test(phone)) {
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$/;
     if (!passwordRegex.test(password)) {
-      alert(
+      toast.error(
         "Password must include uppercase, lowercase, number and symbol (min 6 chars)"
       );
       return;
@@ -62,12 +64,13 @@ if (!phoneRegex.test(phone)) {
     try {
       const success = await signup(formData)
       if(success){
-         alert("Account created successfully! Please sign in to continue.");
+         toast.success("Account created successfully! Please Verify your email address.");
          onClose();
+         nav('/verify')
       }
     
     } catch (error) {
-      alert("signup failed. Please try again", error)
+      toast.error("signup failed. Please try again", error)
       
     }
 

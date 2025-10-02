@@ -12,8 +12,9 @@ import Menu3 from "../Pages/Menu/Menu3";
 import Menu4 from "../Pages/Menu/Menu4";
 import Menu5 from "../Pages/Menu/Menu5";
 import Order from "../Pages/HomePage/OrderPage/Order";
+import VerifyEmail from "../Components/VerifyEmail";
 
-const LinkRoute = () => {
+const LinkRoute = ({ openLoginModal }) => {
   const riseBitemenu = [
     {
       image: "./src/assets/Risbite pictures/fluffymoimoi.jpeg",
@@ -235,12 +236,11 @@ const LinkRoute = () => {
   ];
 
   return (
-    <Router>
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<LoginModal />} />
         <Route path="/profile" element={<Profile />} />
         <Route
           path="/menu"
@@ -256,11 +256,11 @@ const LinkRoute = () => {
           }
         />
 
-        {/* <Menu props={riseBitemenu} /> */}
+        <Route path="/verify" element={<VerifyEmail openLoginModal={openLoginModal} />} />
         <Route path="/order" element={<Order />} />
       </Routes>
       <Footer />
-    </Router>
+    </>
   );
 };
 

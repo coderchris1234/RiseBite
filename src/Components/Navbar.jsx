@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Navbar.css";
 import { useState, useContext } from "react";
 import { useAuth } from "../Context/AuthContext";
@@ -12,13 +12,20 @@ import LoginModal from "./Login";
 import { Addtocart } from "../Context/Addtocart";
 import { Pointer } from "lucide-react";
 
+
 const Navbar = () => {
   const nav = useNavigate();
-  const { user } = useAuth();
+  const { user, signout } = useAuth();
   const [open, setOpen] = useState(false);
   const [loginOpen, setLogin] = useState(false);
   const [menu, setMenu] = useState("home");
   const { cartItems } = useContext(Addtocart);
+    useEffect(() => {
+  if (user) {
+    setLogin(false); 
+    setOpen(false);  
+  }
+}, [user]);
   return (
     <div className="headerNavbar">
       <div className="NavbarWrapper">
@@ -59,6 +66,7 @@ const Navbar = () => {
             </Link>
           </ul>
         </div>
+        
         <div
           style={{
             display: "flex",
@@ -99,11 +107,13 @@ const Navbar = () => {
           )}
         </div>
 
+
         {user ? (
           <div
             style={{
               display: "flex",
               gap: "20px",
+              alignItems: "center"
             }}
           >
             <IoCartOutline
@@ -120,6 +130,17 @@ const Navbar = () => {
               }}
               onClick={() => nav("/profile")}
             />
+            <button 
+            style={{
+              backgroundColor: "#a59f9f",
+              padding: "8px",
+              borderRadius: "8px",
+              color: "white",
+              border: "none",
+              cursor: "pointer"
+            }}
+            onClick={signout}>Logout</button>
+            <h4>Hey 👋 {user.firstname}</h4>
           </div>
         ) : (
           <div className="NavbarAuthContainer">

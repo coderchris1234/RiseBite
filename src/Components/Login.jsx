@@ -1,16 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth } from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import "./Signup.css";
 // import { toast } from "react-toastify";
 import arrow from "../assets/back.png";
+import { toast } from "react-toastify";
+import ForgotPasswordModal from "./ForgetPassword";
 
 const LoginModal = ({ isOpen, onClose }) => {
+  
   const { signin, loading, error } = useAuth();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const [forgotOpen, setForgotOpen] = useState(false);
+
+  useEffect(() => {
+  if (!isOpen) {
+    setFormData({ email: "", password: "" });
+  }
+}, [isOpen]);
+
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,16 +37,25 @@ const LoginModal = ({ isOpen, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.email || !formData.password) {
-      alert("All fields are required to fill");
-      // return false;
+      toast.warning("All fields are required to fill");
+      return;
     }
+    
 
     try {
-      await signin(formData);
-      navigate("/");
-      onClose()
+      const success = await signin(formData);
+      if (success) {
+           setFormData({
+          email: "",
+          password: ""
+        })
+        onClose();
+        navigate("/");
+        toast.success('welcome')
+      }
+      
     } catch (error) {
-      alert("failed to sign in", error)
+      toast.error("failed to sign in", error);
     }
   };
 
@@ -105,11 +126,18 @@ const LoginModal = ({ isOpen, onClose }) => {
               placeholder="Enter your password"
             />
           </div>
-
+           <p style={{ cursor: "pointer", color: "blue" }}
+               onClick={() => setForgotOpen(true)}>
+              Forgot Password? Click here
+            </p>
           <button type="submit">{loading ? "Signing..." : "Sign in"}</button>
           {error && <p style={{ color: "red" }}>{error}</p>}
         </form>
       </div>
+        <ForgotPasswordModal 
+        isOpen={forgotOpen} 
+        onClose={() => setForgotOpen(false)} 
+      />
     </div>
   );
 };
