@@ -6,7 +6,8 @@ function App() {
   return (
     <>
       {/* <ToastContainer> */}
-        <LinkRoute />
+
+      <LinkRoute />
       {/* </ToastContainer> */}
     </>
   );

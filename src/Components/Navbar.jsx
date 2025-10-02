@@ -1,6 +1,6 @@
 import React from "react";
 import "./Navbar.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useAuth } from "../Context/AuthContext";
 import { IoCartOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
@@ -9,6 +9,8 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import SignupModal from "./Signup";
 import LoginModal from "./Login";
+import { Addtocart } from "../Context/Addtocart";
+import { Pointer } from "lucide-react";
 
 const Navbar = () => {
   const nav = useNavigate();
@@ -16,12 +18,13 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [loginOpen, setLogin] = useState(false);
   const [menu, setMenu] = useState("home");
+  const { cartItems } = useContext(Addtocart);
   return (
     <div className="headerNavbar">
       <div className="NavbarWrapper">
         <div className="navbar-logo">
           <img
-          onClick={()=> nav('/')}
+            onClick={() => nav("/")}
             style={{ backgroundColor: "black" }}
             src={logo}
             alt="navbar-logo"
@@ -55,6 +58,44 @@ const Navbar = () => {
               </li>
             </Link>
           </ul>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            gap: "20px",
+          }}
+        >
+          <IoCartOutline
+            size={30}
+            style={{
+              cursor: "pointer",
+            }}
+            onClick={() => nav("/cart")}
+          />
+          <CgProfile
+            size={28}
+            style={{
+              cursor: "pointer",
+            }}
+            onClick={() => nav("/profile")}
+          />
+          {cartItems.length > 0 && (
+            <span
+              style={{
+                position: "absolute",
+                top: 10,
+                right: 440,
+                background: "red",
+                color: "white",
+                borderRadius: "50%",
+                padding: "2px 6px",
+                fontSize: "15px",
+                fontWeight: 400,
+              }}
+            >
+              {cartItems.length}
+            </span>
+          )}
         </div>
 
         {user ? (

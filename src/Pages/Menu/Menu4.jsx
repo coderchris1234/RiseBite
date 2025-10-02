@@ -1,28 +1,14 @@
 import React, { useContext } from "react";
 import "./Menu.css";
-// import Menu2 from "./Menu2";
 import { Addtocart } from "../../Context/Addtocart.jsx";
-
-const Menu = ({ props }) => {
+const Menu4 = ({ props }) => {
   const { addToCart } = useContext(Addtocart);
-
   return (
     <>
-      <section className="menu_header">
-        <div className="menu_header_texts">
-          <h2>Menu</h2>
-          <h3>
-            Welcome to our menu, where you get varieties of
-            <br></br>
-            dishes made specially for you.
-          </h3>
-        </div>
-      </section>
-
       <section className="menu_food">
         <div className="menu_name">
-          <h1>Breakfast Dishes</h1>
-          <h3>Choose from our mouth-watering breakfast items</h3>
+          <h1>Appetizers</h1>
+          <h3>Choose from our mouth-watering appetizers made for you</h3>
         </div>
         <article className="blocks">
           {props.map((prop, index) => (
@@ -44,9 +30,8 @@ const Menu = ({ props }) => {
           <hr></hr>
         </article>
       </section>
-      {/* <Menu2 /> */}
     </>
   );
 };
 
-export default Menu;
+export default Menu4;
