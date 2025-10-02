@@ -12,18 +12,17 @@
   justify-content: space-between;
   align-items: center;
 }
-.navbar-logo{
+.navbar-logo {
   display: flex;
   align-items: center;
   gap: 10px;
   /* background-color: red; */
 }
-.navbar-logo img{
+.navbar-logo img {
   padding: 8px;
   width: 47px;
   height: 47px;
   border-radius: 50px;
-  
 }
 .NavbarmenuContainer ul {
   display: flex;
@@ -34,9 +33,9 @@
 }
 
 .NavbarmenuContainer ul .active {
- /* padding-bottom: 20px; */
- padding: 2px;
- border-bottom: 3px solid #000;
+  /* padding-bottom: 20px; */
+  padding: 2px;
+  border-bottom: 3px solid #000;
 }
 
 .NavbarmenuContainer ul li:hover {
@@ -48,4 +47,16 @@
   list-style: none;
   cursor: pointer;
   font-weight: 600;
+}
+
+.red_indicator {
+  position: absolute;
+  top: 10;
+  right: 440;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 15px;
+  font-weight: 400;
 }
