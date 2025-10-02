@@ -182,3 +182,69 @@
   line-height: 1.5;
   margin: 0;
 }
+
+.confirm_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.confirm_modal {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: popIn 0.3s ease;
+}
+
+.confirm_modal h2 {
+  color: green;
+  margin-bottom: 15px;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.confirm_modal p {
+  font-weight: 300;
+}
+
+.confirm_modal b {
+  font-weight: 300;
+}
+
+.confirm_close_btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: black;
+  color: white;
+  font-weight: 400;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.confirm_close_btn:hover {
+  background: #444;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
