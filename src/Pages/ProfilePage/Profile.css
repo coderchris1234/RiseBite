@@ -12,7 +12,8 @@
     background-color: #333;
     color: white;
     display: flex;
-    place-content: center;
+    justify-content: center;
+    align-items:  center;
     font-size: 32px;
     font-weight: bold;
     margin: 0 auto 20px auto;
@@ -33,5 +34,13 @@
     border: 1px solid #ccc;
     background: #f8f8f8;
     text-align: center;
+    cursor: pointer;
+}
+.logoutBtn{
+    background: tomato;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
     cursor: pointer;
 }
